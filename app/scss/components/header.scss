@@ -1,0 +1,211 @@
+@use "../util" as *;
+@use "../globals/" as *;
+
+.header {
+  height: 10rem;
+  padding: 2.5rem 2rem;
+
+  .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  }
+
+  // /////////////////////////////////////////////////////
+  // ///////////////// LOGO ////////////////////////////////////
+  // /////////////////////////////////////////////////////
+
+  &__logo-box {
+    justify-self: start;
+    align-self: center;
+    max-width: 14rem;
+
+    @media only screen and (min-width: $lg) {
+      max-width: 18rem;
+    }
+
+    img {
+      display: block;
+    }
+  }
+
+  // /////////////////////////////////////////////////////
+  // ///////////////// NAVIGATION ////////////////////////////////////
+  // /////////////////////////////////////////////////////
+
+  &__navigation {
+    justify-self: end;
+    align-self: center;
+    position: fixed;
+    z-index: 555;
+  }
+
+  // /////////////////////////////////////////////////////
+  // ///////////////// NAVIGATION ICON (HAMBURGER) ////////////////////////////////////
+  // /////////////////////////////////////////////////////
+
+  &__hamburger {
+    position: relative;
+    width: 6.5rem;
+    height: 6.5rem;
+    @include flex-center;
+    background-color: $bg-color;
+    border-radius: 50%;
+    box-shadow: 0 1rem 3rem rgba(black, 0.7);
+    cursor: pointer;
+    z-index: 9999;
+  }
+
+  &__hamburger:hover &__hamburger-icon {
+    transform: translateY(-0.2rem) scale(1.05);
+  }
+
+  &__hamburger-icon {
+    position: relative;
+
+    &,
+    &::before,
+    &::after {
+      width: 4rem;
+      height: 2px;
+      background-color: $color-light;
+      display: inline-block;
+      transition: all 0.2s;
+    }
+
+    &::before,
+    &::after {
+      position: absolute;
+      content: "";
+      left: 0;
+    }
+
+    &::after {
+      top: 0.7rem;
+    }
+
+    &::before {
+      top: -0.7rem;
+    }
+
+    &--toggle {
+      background-color: transparent;
+    }
+
+    &--toggle::before {
+      top: 0;
+      transform: rotate(-135deg);
+    }
+
+    &--toggle::after {
+      top: 0;
+      transform: rotate(135deg);
+    }
+  }
+
+  // /////////////////////////////////////////////////////
+  // ///////////////// NAVIGATION MENU ////////////////////////////////////
+  // /////////////////////////////////////////////////////
+
+  &__nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 10;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.7s ease-in;
+    @include flex-center;
+
+    &--show {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    &::before {
+      position: fixed;
+      top: 500px;
+      left: -100px;
+      bottom: 0;
+      content: "";
+      width: 400px;
+      height: 400px;
+      border: 2px solid rgba(255, 255, 255, 0.05);
+      z-index: -1;
+      -webkit-transform: rotate(20deg);
+      -moz-transform: rotate(20deg);
+      -ms-transform: rotate(20deg);
+      -o-transform: rotate(20deg);
+      transform: rotate(20deg);
+    }
+
+    &::after {
+      position: fixed;
+      top: -150px;
+      right: -50px;
+      bottom: 0;
+      content: "";
+      width: 400px;
+      height: 600px;
+      border: 2px solid rgba(255, 255, 255, 0.05);
+      z-index: -1;
+      -webkit-transform: rotate(-30deg);
+      -moz-transform: rotate(-30deg);
+      -ms-transform: rotate(-30deg);
+      -o-transform: rotate(-30deg);
+      transform: rotate(-30deg);
+    }
+  }
+
+  &__nav-list {
+    list-style: none;
+    text-align: center;
+    transform: translateY(200%);
+    transition: all 0.6s $extra-transition;
+    transition-delay: 0.3s;
+    visibility: hidden;
+    opacity: 0;
+
+    &--show {
+      transform: translateY(0);
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+
+  &__nav-item {
+    margin: 2rem;
+  }
+
+  &__nav-link,
+  &__nav-link:link,
+  &__nav-link:visited {
+    padding: 1rem 2rem;
+    color: #8c8c8c;
+    @include primary-link-effect($bg-color, $color-secondary);
+  }
+}
+
+// /////////////////////////////////////////////////////
+// ///////////////// BACKDROP ////////////////////////////////////
+// /////////////////////////////////////////////////////
+
+.backdrop {
+  background-color: $bg-color;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  top: 2rem;
+  right: 2rem;
+  z-index: 9;
+  transition: all 0.8s $slow-start-transition;
+  position: absolute;
+  box-shadow: 0 1rem 3rem rgba(black, 0.7);
+}
+
+.backdrop-show {
+  transform: scale(150);
+}

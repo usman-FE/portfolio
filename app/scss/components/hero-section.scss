@@ -1,0 +1,33 @@
+@use "../util/" as *;
+@use "../globals/" as *;
+
+.hero-section {
+  height: calc(100vh - 10rem);
+  @include flex-center;
+
+  &__content {
+    margin-top: -10rem;
+    text-align: center;
+  }
+
+  &__heading {
+    display: block;
+    color: $color-light;
+    margin: 3rem 0;
+  }
+
+  &__caption {
+    display: block;
+    color: $dull-dark;
+  }
+
+  &__cta {
+    display: block;
+    color: $dull-dark;
+    @include primary-link-effect($bg-color, $color-secondary);
+
+    span {
+      text-decoration: underline;
+    }
+  }
+}

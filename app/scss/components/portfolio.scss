@@ -1,0 +1,94 @@
+@use "../util/" as *;
+@use "../globals/" as *;
+
+.portfolio {
+  padding: 2rem;
+  overflow: hidden;
+
+  .container {
+    position: relative;
+  }
+
+  &__heading {
+    position: absolute;
+  }
+
+  &__project-box {
+    margin-top: 16rem;
+  }
+
+  &__project {
+    display: flex;
+    backface-visibility: hidden;
+
+    @media only screen and (max-width: $md) {
+      flex-direction: column;
+    }
+  }
+
+  &__project:nth-child(even) {
+    flex-direction: row-reverse;
+
+    @media only screen and (max-width: $md) {
+      flex-direction: column;
+    }
+  }
+
+  &__project:not(:last-child) {
+    margin-bottom: 8rem;
+  }
+
+  &__image-box {
+    flex: 1.7;
+    backface-visibility: hidden;
+    transition: all 0.25s ease-out;
+    overflow: hidden;
+    position: relative;
+
+    @media only screen and (max-width: $md) {
+      transition: none;
+    }
+  }
+
+  &__image-box::after {
+    content: "";
+    position: absolute;
+    background-color: #121212;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    transition: all 0.3s ease-in;
+  }
+
+  &__image-box:hover::after {
+    opacity: 0.6;
+  }
+
+  &__image-box:hover .portfolio__image {
+    transform: scale(1.05);
+  }
+
+  &__image {
+    display: block;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    transition: all 0.3s ease-in;
+  }
+
+  &__details-box {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 2rem;
+    padding: 5% 7%;
+  }
+
+  &__project-title {
+    color: $color-light;
+  }
+}

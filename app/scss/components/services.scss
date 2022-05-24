@@ -1,0 +1,46 @@
+@use "../util/" as *;
+@use "../globals/" as *;
+
+.services {
+  padding: 2rem;
+  margin-top: auto;
+
+  .container {
+    position: relative;
+  }
+
+  .services__heading {
+    position: absolute;
+  }
+
+  &__box {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    grid-gap: 8rem;
+    margin-top: 16rem;
+
+    @media only screen and (max-width: $md) {
+      margin-top: 10rem;
+    }
+  }
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+  }
+
+  &__icon {
+    margin-bottom: 2rem;
+    fill: $color-secondary;
+    height: 5.5rem;
+    width: 5.5rem;
+  }
+
+  &__card-heading {
+    margin-bottom: 0.8rem;
+    color: $color-light;
+  }
+}

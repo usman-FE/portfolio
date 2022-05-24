@@ -1,0 +1,24 @@
+@use "../util/" as *;
+@use "../globals/" as *;
+
+.footer {
+  padding: 6rem 0;
+  text-align: center;
+
+  &__text {
+    text-align: center;
+    font-size: 1.5rem;
+  }
+
+  &__link,
+  &__link:visited,
+  &__link:link {
+    text-decoration: none;
+    text-transform: uppercase;
+    @include transition-hover;
+
+    &:hover {
+      color: $color-light;
+    }
+  }
+}

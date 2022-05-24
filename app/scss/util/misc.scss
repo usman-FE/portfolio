@@ -1,0 +1,160 @@
+@use "./mixins.scss" as *;
+@use "../globals/colors.scss" as *;
+
+// /////////////////////////////////////////////////////
+// ///////////////// RESPONSIVE IMAGES ////////////////////////////////////
+// /////////////////////////////////////////////////////
+
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+
+// /////////////////////////////////////////////////////
+// ///////////////// READ MORE ////////////////////////////////////
+// /////////////////////////////////////////////////////
+
+.read-more,
+.read-less {
+  color: $color-secondary;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.misc__read-more {
+  margin-bottom: 2rem;
+}
+
+.collapsible {
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.4s ease-in-out;
+}
+
+.dots {
+  display: inline;
+}
+
+// /////////////////////////////////////////////////////
+// ///////////////// PARAGRAPH BREAK /////////////////////////////////////
+// ////////////////////////////////////////////////////
+.break {
+  display: block;
+  margin-bottom: 2.3rem;
+}
+
+// /////////////////////////////////////////////////////
+// ///////////////// TECHNOLOGIES /////////////////////////////////////
+// ////////////////////////////////////////////////////
+.html {
+  background-color: $html !important;
+}
+.css {
+  background-color: $css !important;
+}
+.js {
+  background-color: $JS !important;
+}
+.sass {
+  background-color: $sass !important;
+}
+.git {
+  background-color: $git !important;
+}
+.bootstrap {
+  background-color: $bootstrap !important;
+}
+.gulp {
+  background-color: $gulp !important;
+}
+
+.technologies {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+
+  &__item:not(:last-child) {
+    margin-right: 1rem;
+  }
+
+  &__item {
+    color: $bg-color;
+    padding: 0.25rem 0.75rem;
+    border-radius: 4%;
+    display: inline-block;
+    text-transform: capitalize;
+    margin-bottom: 1rem;
+    transition: all 0.2s ease-in-out;
+    backface-visibility: hidden;
+    background-color: $color-secondary;
+    box-shadow: 0 1rem 3rem rgba(black, 0.8);
+
+    &:hover {
+      transform: translateY(-3px) scale(1.07);
+      box-shadow: 0 2rem 3rem rgba(black, 0.8);
+    }
+  }
+}
+
+// /////////////////////////////////////////////////////
+// ///////////////// SOCIAL ICONS /////////////////////////////////////
+// ////////////////////////////////////////////////////
+// SOCIAL ICONS
+.socials {
+  list-style: none;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+
+  &__item {
+    display: inline-block;
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+  }
+
+  &__icon {
+    transition: all 0.2s;
+  }
+}
+
+// /////////////////////////////////////////////////////
+// ///////////////// WRAPPER /////////////////////////////////////
+// ////////////////////////////////////////////////////
+.wrapper {
+  margin-bottom: 25rem;
+}
+
+// /////////////////////////////////////////////////////
+// ///////////////// PROGRESS BAR /////////////////////////////////////
+// ////////////////////////////////////////////////////
+//////// Progress Bar
+
+/* Style the header: fixed position (always stay at the top) */
+.header1 {
+  position: fixed;
+  top: 0;
+  z-index: 99999;
+  width: 100%;
+}
+
+/* The progress container (grey background) */
+.progress-container {
+  width: 100%;
+  height: 8px;
+  background: $bg-color;
+}
+
+/* The progress bar (scroll indicator) */
+.progress-bar {
+  height: 8px;
+  background: $color-secondary;
+  width: 0%;
+  transition: all 0.3s ease-in-out;
+}

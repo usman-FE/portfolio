@@ -1,0 +1,160 @@
+@use "../util" as *;
+@use "../globals/" as *;
+
+.about {
+  .container {
+    gap: 14rem;
+    display: flex;
+
+    @media only screen and (max-width: $lg) {
+      gap: 6rem;
+    }
+
+    @media only screen and (max-width: $md) {
+      flex-direction: column;
+      gap: 3rem;
+    }
+    @media only screen and (max-width: $sm) {
+      gap: 1.5rem;
+    }
+  }
+
+  // /////////////////////////////////////////////////////
+  // ///////////////// PICTURE ////////////////////////////////////
+  // /////////////////////////////////////////////////////
+
+  &__picture {
+    flex: 1;
+  }
+
+  &__image-box {
+    max-width: 95%;
+    margin: 0 auto;
+
+    @media only screen and (max-width: $md) {
+      max-width: 90%;
+    }
+  }
+
+  &__image {
+    filter: grayscale(1);
+    display: block;
+    position: relative;
+    z-index: 0;
+    transition: all 0.25s ease-out;
+
+    @media only screen and (max-width: $md) {
+      transition: none;
+    }
+  }
+
+  // /////////////////////////////////////////////////////
+  // ///////////////// CONTENT ////////////////////////////////////
+  // /////////////////////////////////////////////////////
+
+  &__content {
+    flex: 2;
+    position: relative;
+
+    @media only screen and (max-width: $sm) {
+      padding: 0 1.25rem;
+      text-align: justify;
+    }
+  }
+
+  &__detail {
+    display: flex;
+    flex-direction: column;
+    gap: 2.3rem;
+    margin-top: 5.3rem;
+    padding: 0 5rem;
+    z-index: 9;
+    position: relative;
+
+    @media only screen and (max-width: $lg) {
+      padding: 0 2rem;
+      margin-top: 4rem;
+    }
+
+    @media only screen and (max-width: $md) {
+      padding: 0 1rem;
+      margin-top: 3rem;
+    }
+    @media only screen and (max-width: $sm) {
+      padding: 0 1.5rem;
+      margin-top: 3rem;
+    }
+  }
+
+  &__skill-set {
+    display: flex;
+    gap: 2rem;
+
+    @media only screen and (max-width: $md) {
+      flex-direction: column;
+    }
+  }
+
+  &__box {
+    flex: 1;
+
+    h4 {
+      margin-bottom: 1.5rem;
+
+      @media only screen and (max-width: $md) {
+        margin-bottom: 1rem;
+      }
+    }
+  }
+
+  &__heading {
+    font-size: clamp(7.2rem, 14vw, 14rem);
+    position: absolute;
+    z-index: 5;
+  }
+
+  &__sub-heading {
+    color: $color-light;
+  }
+
+  &__heading-4 {
+    color: $color-light;
+  }
+
+  &__socials {
+    gap: 2rem;
+
+    @media only screen and (max-width: $md) {
+      gap: 1.5rem;
+    }
+  }
+
+  &__socials-link {
+    width: 4.5rem;
+    height: 4.5rem;
+    background-color: $dull-dark-2;
+
+    &:hover .about__socials-icon {
+      fill: $color-light;
+    }
+  }
+
+  &__socials-icon {
+    height: 2rem;
+    width: 2rem;
+    fill: $color-secondary;
+  }
+
+  &__email-phone-box {
+    p:not(:last-child) {
+      margin-bottom: 1rem;
+    }
+  }
+
+  &__email-phone {
+    @include transition-hover;
+    &:hover {
+      color: $color-light;
+    }
+  }
+}

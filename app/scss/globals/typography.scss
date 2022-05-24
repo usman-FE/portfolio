@@ -1,0 +1,163 @@
+@use "../util" as *;
+@use "../globals/colors.scss" as *;
+@use "../globals/breakpoints.scss" as *;
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  padding: 0;
+  line-height: 1.1;
+}
+
+a,
+a:visited,
+a:active {
+  text-decoration: none;
+}
+
+.header {
+  &__nav-link,
+  &__nav-link:link,
+  &__nav-link:visited {
+    font-size: clamp(2.2rem, 3vw, 3rem);
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 1rem;
+  }
+}
+
+.heading-1 {
+  font-size: clamp(2.3rem, 5.5vw, 5.5rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: clamp(0.73rem, 1vw, 1rem);
+}
+
+.heading-2 {
+  color: $dull-dark-2;
+  font-size: clamp(3.8rem, 13vw, 14rem);
+  line-height: 0.7;
+  letter-spacing: 0.6rem;
+  text-transform: uppercase;
+
+  &--contact {
+    @media only screen and (max-width: $xl) {
+      font-size: clamp(3.8rem, 10vw, 14rem) !important;
+      letter-spacing: 0 !important;
+    }
+  }
+
+  @media only screen and (max-width: $sm) {
+    letter-spacing: 0.3rem;
+  }
+}
+
+.heading-3 {
+  color: $color-light;
+  font-size: clamp(1.2rem, 3.5vw, 3.5rem);
+  font-weight: 300;
+  letter-spacing: 0.2rem;
+}
+
+.heading-4 {
+  font-size: clamp(2rem, 2.6vw, 2.6rem);
+  font-weight: 300;
+  letter-spacing: 0.2rem;
+}
+
+.heading-5 {
+  font-size: clamp(1.6rem, 2.1vw, 2.1rem);
+  font-weight: 400;
+}
+
+.heading-caption {
+  padding: 0 5rem;
+  padding-top: 4rem;
+  z-index: 9;
+
+  &--contact {
+    @media only screen and (max-width: $lg) {
+      font-size: clamp(0.6rem, 2.5vw, 3.5rem) !important;
+    }
+  }
+
+  @media only screen and (max-width: $lg) {
+    padding: 0 3.5rem;
+    padding-top: 3rem;
+  }
+
+  @media only screen and (max-width: $md) {
+    padding: 0 2.5rem;
+    padding-top: 3rem;
+  }
+  @media only screen and (max-width: $sm) {
+    padding: 0 2.5rem;
+    padding-top: 1.5rem;
+  }
+}
+
+.hero-section__caption {
+  font-size: clamp(1.5rem, 2vw, 2rem);
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+}
+
+.cta {
+  font-size: 1.6rem;
+  font-size: clamp(1.2rem, 2vw, 1.6rem);
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.3rem;
+  padding: 1rem 2rem;
+}
+
+.btn-primary,
+.btn-primary:link,
+.btn-primary:visited {
+  font-size: clamp(1rem, 1.5vw, 1.75rem);
+  font-weight: 400;
+  display: block;
+  padding: 0.5rem 1rem;
+  text-transform: capitalize;
+  color: $color-secondary;
+  background-color: $bg-color;
+  @include primary-link-effect($bg-color, $color-secondary, 0);
+  box-shadow: 0 1rem 3rem rgba(black, 0.8);
+}
+
+.detail-paragraph {
+  font-size: clamp(1.39rem, 1.8vw, 1.8rem);
+  font-weight: 400;
+  letter-spacing: 0.3px;
+}
+
+.external-link {
+  color: $color-light;
+  cursor: pointer;
+}
+
+.technologies__item {
+  font-size: clamp(1.4rem, 1.8vw, 1.8rem);
+  font-weight: 400;
+  letter-spacing: 0.3px;
+}
+
+.secondary-text,
+.secondary-text:link,
+.secondary-text:visited {
+  color: $color-secondary;
+}
+
+.portfolio__project-title {
+  letter-spacing: 0;
+  line-height: 1.4;
+}
+
+.project-caption {
+  font-size: clamp(1rem, 1.2vw, 1.4rem);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 300;
+}

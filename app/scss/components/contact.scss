@@ -1,0 +1,160 @@
+@use "../util/" as *;
+@use "../globals/" as *;
+
+.contact {
+  padding: 2rem;
+
+  .container {
+    position: relative;
+  }
+
+  &__heading {
+    position: absolute;
+  }
+
+  &__form-box {
+    margin-top: 16rem;
+    display: flex;
+    justify-content: space-between;
+    background-image: linear-gradient(
+        105deg,
+        rgba($bg-color, 0.9) 0%,
+        rgba($bg-color, 0.9) 55%,
+        transparent 55%
+      ),
+      url("../images/contact.webp");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    padding: 6rem;
+
+    @media only screen and (max-width: $md) {
+      background-image: linear-gradient(
+          105deg,
+          rgba($bg-color, 0.9) 0%,
+          rgba($bg-color, 0.9) 70%,
+          transparent 70%
+        ),
+        url("../images/contact.webp");
+    }
+
+    @media only screen and (max-width: $sm) {
+      padding: 3rem;
+    }
+  }
+
+  &__social-icons-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__form-heading {
+    margin-bottom: 6rem;
+  }
+
+  &--social-icons {
+    flex-direction: column;
+  }
+
+  &--icon-item:not(:last-child) {
+    margin-bottom: 3rem;
+  }
+
+  &--link {
+    width: 3.3rem;
+    height: 3.3rem;
+    background-color: rgba($bg-color, 0.8);
+    border: 1px solid $color-secondary;
+
+    &:hover .contact--icon {
+      fill: $color-light;
+    }
+
+    &:hover.contact--link {
+      border-color: $color-light;
+    }
+  }
+
+  &--icon {
+    height: 1.4rem;
+    width: 1.4rem;
+    fill: $color-secondary;
+  }
+}
+
+.form {
+  width: 50%;
+  &__group {
+    width: 80%;
+  }
+
+  @media only screen and (max-width: $md) {
+    width: 75%;
+  }
+  @media only screen and (max-width: $sm) {
+    width: 90%;
+  }
+
+  &__group:not(:last-child) {
+    margin-bottom: 1rem;
+  }
+
+  &__input {
+    font-size: 1.4rem;
+    padding: 1.5rem 0;
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    color: $color-light;
+    font-family: inherit;
+    font-weight: 300;
+    border-bottom: 1.7px solid $dull-dark-2;
+    display: block;
+    letter-spacing: 0.7px;
+    transition: all 0.5s;
+
+    &:focus {
+      outline: none;
+      border-color: $color-secondary;
+    }
+
+    &::-webkit-input-placeholder {
+      font-size: 1.4rem;
+      font-family: inherit;
+      color: $dull-dark;
+      font-weight: 300;
+    }
+
+    &::placeholder {
+      font-size: 1.4rem;
+      font-family: inherit;
+      color: $dull-dark;
+      font-weight: 300;
+    }
+  }
+
+  &__input:placeholder-shown + &__label {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-4.2rem);
+  }
+
+  &__label {
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin-top: 0.7rem;
+    display: block;
+    transition: all 0.3s;
+  }
+
+  &__submit {
+    font-size: 1.4rem;
+    font-family: inherit;
+    font-weight: 400;
+    letter-spacing: 0.4rem;
+    padding: 0.8rem 1rem;
+    border: none;
+    width: 100%;
+  }
+}
