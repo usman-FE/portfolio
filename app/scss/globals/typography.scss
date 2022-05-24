@@ -107,7 +107,6 @@ a:active {
 .cta {
   font-size: 1.6rem;
   font-size: clamp(1.2rem, 2vw, 1.6rem);
-  font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 0.3rem;
   padding: 1rem 2rem;
@@ -116,11 +115,10 @@ a:active {
 .btn-primary,
 .btn-primary:link,
 .btn-primary:visited {
-  font-size: clamp(1rem, 1.5vw, 1.75rem);
+  font-size: clamp(1.2rem, 1.5vw, 1.75rem);
   font-weight: 400;
   display: block;
   padding: 0.5rem 1rem;
-  text-transform: capitalize;
   color: $color-secondary;
   background-color: $bg-color;
   @include primary-link-effect($bg-color, $color-secondary, 0);

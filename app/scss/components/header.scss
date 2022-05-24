@@ -17,7 +17,11 @@
   &__logo-box {
     justify-self: start;
     align-self: center;
-    max-width: 14rem;
+    max-width: 12.5rem;
+
+    @media only screen and (min-width: $md) {
+      max-width: 14rem;
+    }
 
     @media only screen and (min-width: $lg) {
       max-width: 18rem;
