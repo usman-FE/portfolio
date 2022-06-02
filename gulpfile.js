@@ -55,6 +55,11 @@ function copyHTML() {
   return src("*.html").pipe(dest("dist"));
 }
 
+// COPY STIEMAP TO DIST
+function copyXML() {
+  return src("*.xml").pipe(dest("dist"));
+}
+
 // Browsersync
 function browserSyncServe(cb) {
   browsersync.init({
@@ -97,4 +102,4 @@ exports.default = series(
 );
 
 // Gulp Build Task
-exports.build = series(copyHTML, scssTask, jsTask, imageOptimize, webpImage);
+exports.build = series(copyHTML, copyXML, scssTask, jsTask, imageOptimize, webpImage);
