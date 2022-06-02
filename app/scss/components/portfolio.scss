@@ -1,5 +1,5 @@
-@use "../util/" as *;
-@use "../globals/" as *;
+@use '../util/' as *;
+@use '../globals/' as *;
 
 .portfolio {
   padding: 2rem;
@@ -51,15 +51,15 @@
   }
 
   &__image-box::after {
-    content: "";
+    content: '';
     position: absolute;
     background-color: #121212;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
     opacity: 0;
-    transition: all 0.3s ease-in;
+    transition: all 0.3s ease;
   }
 
   &__image-box:hover::after {
@@ -75,7 +75,7 @@
     height: 100%;
     width: 100%;
     object-fit: cover;
-    transition: all 0.3s ease-in;
+    transition: all 0.3s ease;
   }
 
   &__details-box {
