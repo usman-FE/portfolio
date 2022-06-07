@@ -1,7 +1,8 @@
-@use "../util/" as *;
-@use "../globals/" as *;
+@use '../util/' as *;
+@use '../globals/' as *;
 
 .services {
+  @include transition-section;
   padding: 2rem;
   margin-top: auto;
 

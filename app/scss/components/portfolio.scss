@@ -4,6 +4,7 @@
 .portfolio {
   padding: 2rem;
   overflow: hidden;
+  @include transition-section;
 
   .container {
     position: relative;

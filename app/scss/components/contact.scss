@@ -1,7 +1,8 @@
-@use "../util/" as *;
-@use "../globals/" as *;
+@use '../util/' as *;
+@use '../globals/' as *;
 
 .contact {
+  @include transition-section;
   padding: 2rem;
 
   .container {
@@ -22,7 +23,7 @@
         rgba($bg-color, 0.9) 55%,
         transparent 55%
       ),
-      url("../images/contact.webp");
+      url('../images/contact.webp');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -35,7 +36,7 @@
           rgba($bg-color, 0.9) 70%,
           transparent 70%
         ),
-        url("../images/contact.webp");
+        url('../images/contact.webp');
     }
 
     @media only screen and (max-width: $sm) {

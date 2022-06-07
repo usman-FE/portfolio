@@ -1,7 +1,8 @@
-@use "../util" as *;
-@use "../globals/" as *;
+@use '../util' as *;
+@use '../globals/' as *;
 
 .about {
+  @include transition-section;
   .container {
     gap: 14rem;
     display: flex;

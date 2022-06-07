@@ -76,6 +76,7 @@ btnColl.forEach((btn) => {
   });
 });
 
+
 btnLess.forEach((btn) => {
   btn.addEventListener('click', function () {
     const content = this.parentElement;
@@ -95,135 +96,6 @@ btnLess.forEach((btn) => {
   });
 });
 
-// /////////////////////////////////////////////////////
-// ///////////////// GENERATE PORTFOLIO PROJECTS ////////////////////////////////////
-// /////////////////////////////////////////////////////
-const projectData = [
-  {
-    title: 'TODO | Classic app with a few twists!',
-    type: 'application',
-    description:
-      'The sacred Todo application. A staple for every portfolio website. This one comes with a dark/light theme toggle.',
-    descriptionAddiontal:
-      ' Also includes the more traditional features like adding, removing, and checking/unchecking tasks. Also, added 3 filter options for some good measures.',
-    technologies: [
-      'HTML',
-      'CSS',
-      'JavaScript',
-      'tailwind',
-      'bootstrap',
-      'sass',
-    ],
-    imagejpg: '../images/forkify.jpg',
-    imagewebp: '../images/forkify.webp',
-    link: 'https://www.google.com',
-  },
-  {
-    title: 'TODO | Classic app with a few twists! 2',
-    type: 'Game',
-    description:
-      'The sacred Todo application. A staple for every portfolio website. This one comes with a dark/light theme toggle.',
-    descriptionAddiontal:
-      ' Also includes the more traditional features like adding, removing, and checking/unchecking tasks. Also, added 3 filter options for some good measures.',
-    technologies: [
-      'tailwind',
-      'css',
-      'javascript',
-      'tailwind',
-      'bootstrap',
-      'sass',
-    ],
-    imagejpg: '../images/forkify.jpg',
-    imagewebp: '../images/forkify.webp',
-    link: 'https://www.google.com',
-  },
-];
-
-function generateProjectHTML(
-  title,
-  type,
-  description,
-  descriptionAddiontal,
-  technologies,
-  imagejpg,
-  imagewebp,
-  link
-) {
-  const maped = technologies.map((tech) => {
-    return `<li class="technologies__item ${
-      tech === 'JavaScript' ? 'js' : tech.toLowerCase()
-    }">${tech}</li>`;
-  });
-  console.log(maped);
-  return `
-  <div class="portfolio__project">
-  <div class="portfolio__image-box">
-    <picture>
-      <source srcset="${imagewebp}" />
-      <img
-        src="${imagejpg}"
-        alt="Room Website Homepage"
-        title="Room Website Homepage"
-        class="portfolio__image img-fluid"
-      />
-    </picture>
-  </div>
-  <div class="portfolio__details-box">
-    <p class="project-caption">${type}</p>
-    <h4 class="heading-4 portfolio__project-title">
-      ${title}
-    </h4>
-    ${
-      descriptionAddiontal
-        ? `<p class="detail-paragraph">
-      ${description}
-      <span
-        id="dots"
-        >...</span
-      >
-      <span class="read-more">read more &darr;</span>
-    </p>
-    <p class="detail-paragraph collapsible">
-      ${descriptionAddiontal}
-      <span class="read-less">read less &uarr;</span>
-    </p>`
-        : `<p class="detail-paragraph">
-            ${description}
-          </p>`
-    }
-    
-    <ul class="technologies">
-     ${maped.join('')}
-    </ul>
-    <a
-      href="${link}"
-      target="_blank"
-      class="btn-primary"
-      >View Project</a
-    >
-  </div>
-  </div>
-  
-  `;
-}
-//  title,
-//   type,
-//   description,
-//   technologies,
-//   imagejpg,
-//   imagewebp,
-//   link
-
-const html = generateProjectHTML(
-  projectData[0].title,
-  projectData[0].type,
-  projectData[0].description,
-  projectData[0].descriptionAddiontal,
-  projectData[0].technologies,
-  projectData[0].imagejpg,
-  projectData[0].imagewebp,
-  projectData[0].link
-);
 
 // /////////////////////////////////////////////////////
 // ///////////////// PORTFOLIO IMAGE PARALLAX ////////////////////////////////////
@@ -278,3 +150,26 @@ function myFunction() {
   const scrolled = (winScroll / height) * 100;
   document.getElementById('myBar').style.width = scrolled + '%';
 }
+
+
+// /////////////////////////////////////////////////////
+// ///////////////// REVEAL SECTIONS ////////////////////////////////////
+// /////////////////////////////////////////////////////
+const allSections = document.querySelectorAll('.section')
+const revealSection = function (entries, observer) {
+  const [entry] = entries;
+  if (!entry.isIntersecting) return;
+  entry.target.classList.remove('section--hidden')
+  observer.unobserve(entry.target)
+}
+
+const sectionObserver = new IntersectionObserver(revealSection, {
+  root: null,
+  threshold: 0.15,
+});
+
+allSections.forEach(section => {
+  sectionObserver.observe(section);
+  section.classList.add('section--hidden');
+})
+
