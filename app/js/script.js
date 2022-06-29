@@ -1,3 +1,11 @@
+import { markups } from './portfolioView.js';
+
+// /////////////////////////////////////////////////////
+// ///////////////// LOAD PORTFOLIO PROJECTS ////////////////////////////////////
+// /////////////////////////////////////////////////////
+const projectbox = document.querySelector('.portfolio__project-box');
+markups.forEach((markup) => projectbox.insertAdjacentHTML('beforeend', markup));
+
 // /////////////////////////////////////////////////////
 // ///////////////// MODAL ////////////////////////////////////
 // /////////////////////////////////////////////////////
@@ -76,7 +84,6 @@ btnColl.forEach((btn) => {
   });
 });
 
-
 btnLess.forEach((btn) => {
   btn.addEventListener('click', function () {
     const content = this.parentElement;
@@ -95,7 +102,6 @@ btnLess.forEach((btn) => {
     }
   });
 });
-
 
 // /////////////////////////////////////////////////////
 // ///////////////// PORTFOLIO IMAGE PARALLAX ////////////////////////////////////
@@ -131,7 +137,6 @@ projects.forEach((project) => {
   const observer = new IntersectionObserver(obsCallBack, options);
   observer.observe(project);
 });
-const projectbox = document.querySelector('.portfolio__project-box');
 
 // /////////////////////////////////////////////////////
 // ///////////////// PROGESS BAR ////////////////////////////////////
@@ -151,25 +156,23 @@ function myFunction() {
   document.getElementById('myBar').style.width = scrolled + '%';
 }
 
-
 // /////////////////////////////////////////////////////
 // ///////////////// REVEAL SECTIONS ////////////////////////////////////
 // /////////////////////////////////////////////////////
-const allSections = document.querySelectorAll('.section')
+const allSections = document.querySelectorAll('.section');
 const revealSection = function (entries, observer) {
   const [entry] = entries;
   if (!entry.isIntersecting) return;
-  entry.target.classList.remove('section--hidden')
-  observer.unobserve(entry.target)
-}
+  entry.target.classList.remove('section--hidden');
+  observer.unobserve(entry.target);
+};
 
 const sectionObserver = new IntersectionObserver(revealSection, {
   root: null,
   threshold: 0.15,
 });
 
-allSections.forEach(section => {
+allSections.forEach((section) => {
   sectionObserver.observe(section);
   section.classList.add('section--hidden');
-})
-
+});

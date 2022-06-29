@@ -1,5 +1,5 @@
-@use "./mixins.scss" as *;
-@use "../globals/colors.scss" as *;
+@use './mixins.scss' as *;
+@use '../globals/colors.scss' as *;
 
 // /////////////////////////////////////////////////////
 // ///////////////// RESPONSIVE IMAGES ////////////////////////////////////
@@ -52,7 +52,7 @@
 .css {
   background-color: $css !important;
 }
-.js {
+.javascript {
   background-color: $JS !important;
 }
 .sass {
