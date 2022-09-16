@@ -55,6 +55,9 @@
 .javascript {
   background-color: $JS !important;
 }
+.alpine {
+  background-color: $alpine !important;
+}
 .sass {
   background-color: $sass !important;
 }
@@ -83,7 +86,6 @@
     padding: 0.25rem 0.75rem;
     border-radius: 4%;
     display: inline-block;
-    text-transform: capitalize;
     margin-bottom: 1rem;
     transition: all 0.2s ease-in-out;
     backface-visibility: hidden;
